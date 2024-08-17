@@ -1,0 +1,351 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+
+/* ! sthle */
+
+:root {
+  --bg-color: #252525;
+  --secondary-color: #ec9c4a;
+  --third-color: #bd2d54;
+  --four-color: #e76f51;
+}
+
+* {
+  font-family: "Poppins";
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  width: 100%;
+  overflow: hidden;
+  background-color: #252525;
+}
+
+.gift-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  bottom: 20%;
+}
+
+.gift-container.active {
+  animation: vibration 1s ease forwards;
+}
+
+@keyframes vibration {
+  0% {
+    transform: scale(1.1);
+  }
+  25% {
+    transform: scale(0.95, 1);
+  }
+  50% {
+    transform: scale(1.1, 0.9);
+  }
+  70% {
+    transform: scale(0.9.1.1);
+  }
+  100% {
+    transform: scale(1.1);
+  }
+}
+
+.gift-container .gift-box {
+  position: absolute;
+  height: 200px;
+  width: 300px;
+  background-color: var(--secondary-color);
+  animation: Bounce 4s ease infinite forwards;
+}
+
+.gift-box::before {
+  content: "";
+  position: absolute;
+  width: 50px;
+  height: 200px;
+  background-color: var(--third-color);
+  left: 124px;
+}
+
+.gift-box::after {
+  content: "";
+  position: absolute;
+  box-shadow: inset 0 10px rgba(0, 0, 0, 0.3);
+  width: 300px;
+  height: 200px;
+}
+
+.gift-box.active {
+  animation: none;
+  transition: 7s;
+  scale: 0;
+}
+
+.click {
+  position: absolute;
+  background-color: var(--secondary-color);
+  width: 340px;
+  height: 90px;
+  top: -90px;
+  left: -20px;
+  z-index: 1;
+  transition: 1s ease;
+}
+
+.click.active {
+  transition-delay: 1s;
+  transform: translateY(-350px);
+}
+
+.click::before {
+  content: "";
+  position: absolute;
+  width: 50px;
+  height: 90px;
+  background-color: var(--third-color);
+  left: 144px;
+  z-index: 2;
+}
+
+.click::after {
+  content: "";
+  position: absolute;
+  width: 5px;
+  height: 0px;
+  border-bottom: 60px solid var(--third-color);
+  border-top: 60px solid var(--third-color);
+  border-left: 0px solid transparent;
+  border-right: 60px solid transparent;
+  transform: rotate(-90deg);
+  top: -93px;
+  left: 136px;
+  z-index: 3;
+}
+
+.gift-container .shadow {
+  content: "";
+  position: relative;
+  width: 340px;
+  height: 40px;
+  background: rgba(0, 0, 0, 0.4);
+  top: 100px;
+  border-radius: 50%;
+  left: -4px;
+  animation: Bounce0ut 4s ease infinite forwards;
+}
+
+.gift-container .shadow.active {
+  animation: none;
+  transform: translateY(40px);
+}
+
+@keyframes Bounce {
+  0% {
+    transform: translateY(-24px);
+  }
+  50% {
+    transform: translateY(0px);
+  }
+  100% {
+    transform: translateY(-24px);
+  }
+}
+
+@keyframes Bounce0ut {
+  0% {
+    transform: translateY(24px);
+    scale: 0.7;
+  }
+  50% {
+    transform: translateY(0px);
+    scale: 1;
+  }
+  100% {
+    transform: translateY(24px);
+    scale: 0;
+  }
+}
+
+.text {
+  position: absolute;
+  top: -20;
+  height: 340px;
+  width: 300px;
+  padding: 20px;
+  background: var(--secondary-color);
+  text-align: center;
+  font-size: 2rem;
+  color: var(--third-color);
+  border-radius: 20px;
+  /* z-index: 1;
+  transform: translateY(-240px); */
+  transition: 1s ease;
+  z-index: -1;
+  scale: 0;
+}
+
+.text.active {
+  scale: 1.5;
+  transform: translateY(-100px);
+  transition-delay: 1s;
+  position: absolute;
+  z-index: 999;
+}
+
+.text.active2 {
+  transition-delay: 1.2s !important;
+  top: 0;
+}
+
+.dialog-birthday_message {
+  position: absolute;
+  background-color: transparent !important;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  top: 5%;
+  z-index: -99;
+  width: 480px;
+  height: 520px;
+  -webkit-transform: none;
+  margin: auto;
+}
+.birthday_container {
+  position: relative;
+  margin: 0 auto;
+  width: 100%;
+  height: 100%;
+  display: block;
+  background: transparent !important;
+  overflow: hidden;
+}
+.balloons {
+  z-index: 1;
+  position: absolute;
+  top: 40px;
+  left: 50%;
+  margin-left: -50%;
+}
+.birthday_container p {
+  z-index: 1;
+  position: absolute;
+  bottom: 40px;
+  font-weight: 500;
+  font-size: 28px;
+  margin: 0 auto;
+  width: 100%;
+  text-align: center;
+  background-color: transparent !important;
+}
+#canvas_confetti {
+  display: inline-block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 0;
+  width: 100%;
+  height: 100%;
+  background-color: transparent;
+}
+.balloon {
+  display: inline-block;
+  width: 50px;
+  height: 60px;
+  background: hsl(215, 50%, 65%);
+  background: rgba(102, 145, 204, 1);
+  border-radius: 80%;
+  position: relative;
+  box-shadow: inset -10px -10px 0 rgba(0, 0, 0, 0.07);
+  margin: 10px 1px;
+  transition: transform 0.5s ease;
+  z-index: 2;
+  animation: balloons 4s ease-in-out infinite;
+  transform-origin: bottom center;
+}
+
+@keyframes balloons {
+  0%,
+  100% {
+    transform: translateY(0) rotate(-4deg);
+  }
+  50% {
+    transform: translateY(-25px) rotate(4deg);
+  }
+}
+
+.balloon:before {
+  content: "▲";
+  font-size: 20px;
+  color: hsl(215, 30%, 50%);
+  color: rgba(88, 125, 176, 1);
+  display: block;
+  text-align: center;
+  width: 100%;
+  position: absolute;
+  bottom: -13px;
+  z-index: -100;
+}
+
+.balloon:after {
+  display: inline-block;
+  top: 65px;
+  position: absolute;
+  height: 100px;
+  width: 2px;
+  margin: 0 auto;
+  left: 24px;
+
+  content: "";
+  background: rgba(0, 0, 0, 0.1);
+}
+
+.ballon:nth-child(1) {
+  box-shadow: inset -10px -10px 0 rgba(88, 125, 176, 1);
+}
+.balloon:nth-child(2) {
+  background: hsl(245, 40%, 65%);
+  animation-duration: 3.5s;
+}
+
+.balloon:nth-child(2):before {
+  color: hsl(245, 40%, 65%);
+}
+
+.balloon:nth-child(3) {
+  background: hsl(139, 50%, 60%);
+  animation-duration: 3s;
+}
+
+.balloon:nth-child(3):before {
+  color: hsl(139, 30%, 50%);
+}
+
+.balloon:nth-child(4) {
+  background: hsl(59, 50%, 58%);
+  animation-duration: 4.5s;
+}
+
+.balloon:nth-child(4):before {
+  color: hsl(59, 30%, 52%);
+}
+
+.balloon:nth-child(5) {
+  background: hsl(23, 55%, 57%);
+  animation-duration: 5s;
+}
+
+.balloon:nth-child(5):before {
+  color: hsl(23, 44%, 46%);
+}
+
+.ucapan {
+  font-size: 0.5rem;
+
+  text-align: justify;
+  font-weight: 300;
+  width: 100%;
+  color: white;
+}
